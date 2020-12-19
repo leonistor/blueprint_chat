@@ -1,0 +1,8 @@
+# Mac OS X files
+.DS_Store
+
+# big files!
+/data/
+
+# compiled binaries
+/bin/
