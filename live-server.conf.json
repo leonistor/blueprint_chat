@@ -3,11 +3,9 @@
   "serveRedirect": false,
   "port": 8000,
   "bind": "localhost",
-  "proxy": "http://localhost:9999",
-  "proxypaths": [
-    "/api"
+  "watchexps": [
+    "templates/**"
   ],
-  "noReload": false,
   "quiet": false,
   "open": false,
   "http2": false
