@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/normalize.css">
+  <link rel="stylesheet" href="/assets/a17t.css">
+  <link rel="stylesheet" href="/assets/tailwind.css">
+</head>
+
+<body>
+  <form class="card ~neutral !low">
+    <div class="mb-4">
+      <label class="label" for="toolkit">Current job</label>
+      <div class="select ~neutral !low my-1 max-w-xs">
+        <select>
+          <option>Teacher</option>
+          <option>Engineer</option>
+          <option>Firefighter</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <p class="support">If you don't currently have a job, select 'other.'</p>
+    </div>
+    <div>
+      <label class="label" for="toolkit">Favorite toolkit</label>
+      <input id="toolkit" type="text" class="input ~critical !normal my-1 max-w-xs  block"
+        placeholder="At least 8 characters..." value="Not a17t">
+      <p class="support ~critical">The correct answer is a17t!</p>
+    </div>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+{
+  "serve": "templates",
+  "serveRedirect": false,
+  "port": 8000,
+  "bind": "localhost",
+  "proxy": "http://localhost:9999",
+  "proxypaths": [
+    "/api"
+  ],
+  "noReload": false,
+  "quiet": false,
+  "open": false,
+  "http2": false
+}

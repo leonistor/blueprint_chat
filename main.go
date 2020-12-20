@@ -26,11 +26,16 @@ func main() {
 	var addr = flag.String("addr", ":8080", "The addr of the application")
 	flag.Parse()
 
-	http.Handle("/", &templateHandler{filename: "chat.html"})
-
 	r := newRoom()
 	// r.tracer = trace.New(os.Stdout)
+
+	staticFiles := http.FileServer(http.Dir("./templates/assets"))
+	http.Handle("/assets/", http.StripPrefix("/assets/", staticFiles))
+
+	http.Handle("/chat", MustAuth(&templateHandler{filename: "chat.html"}))
+	http.Handle("/login", &templateHandler{filename: "login.html"})
 	http.Handle("/room", r)
+
 	go r.run()
 
 	log.Println("Starting the webserver on", *addr)
