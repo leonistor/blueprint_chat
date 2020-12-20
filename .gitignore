@@ -6,3 +6,7 @@
 
 # compiled binaries
 /bin/
+
+# parcel js
+/.cache/
+/dist/

@@ -15,8 +15,3 @@ run: build
 
 test:
 	go test -v ./...
-
-# use live-server: 
-# https://github.com/txchen/light-server
-html:
-	light-server -c live-server.conf.json
