@@ -18,3 +18,6 @@ test:
 
 genkey:
 	openssl rand -hex 24
+
+watch:
+	watchexec -r go run . -e go
