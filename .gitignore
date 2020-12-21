@@ -1,6 +1,9 @@
 # Mac OS X files
 .DS_Store
 
+# dot env
+.env
+
 # big files!
 /data/
 

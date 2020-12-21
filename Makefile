@@ -15,3 +15,6 @@ run: build
 
 test:
 	go test -v ./...
+
+genkey:
+	openssl rand -hex 24

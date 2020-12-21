@@ -7,6 +7,10 @@ import (
 	"path/filepath"
 	"sync"
 	"text/template"
+
+	"github.com/spf13/viper"
+	"github.com/stretchr/gomniauth"
+	"github.com/stretchr/gomniauth/providers/github"
 )
 
 type templateHandler struct {
@@ -25,6 +29,22 @@ func (t *templateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func main() {
 	var addr = flag.String("addr", ":8080", "The addr of the application")
 	flag.Parse()
+
+	// .env
+	viper.SetConfigFile(".env")
+	viper.SetConfigType("env")
+	viper.AutomaticEnv()
+	if err := viper.ReadInConfig(); err != nil {
+		panic("Error reading .env")
+	}
+	gomniSecurityKey := viper.GetString("SECURITY_KEY")
+	gomniClientID := viper.GetString("CLIENT_ID")
+	gomniSecret := viper.GetString("SECRET")
+
+	// setup gomniauth
+	gomniauth.SetSecurityKey(gomniSecurityKey)
+	gomniauth.WithProviders(github.New(gomniClientID, gomniSecret,
+		"http://localhost:8080/auth/callback/github"))
 
 	r := newRoom()
 	// r.tracer = trace.New(os.Stdout)
