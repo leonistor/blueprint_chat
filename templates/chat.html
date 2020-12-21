@@ -25,6 +25,8 @@
   </form>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
   <script>
     $(function () {
 
@@ -40,7 +42,7 @@
           return false;
         }
 
-        socket.send(msgBox.val());
+        socket.send(JSON.stringify({ "Message": msgBox.val() }));
         msgBox.val("");
         return false;
 
@@ -54,7 +56,15 @@
           alert("Connection has been closed.");
         }
         socket.onmessage = function (e) {
-          messages.append($("<li>").text(e.data));
+          var msg = JSON.parse(e.data);
+          var when = dayjs(msg.When).format("mm:HH")
+          messages.append(
+            $("<li>").append(
+              $("<strong>").text(msg.Name + " "),
+              $("<em>").text("@" + when),
+              $("<span>").text(": " + msg.Message)
+            )
+          );
         }
       }
 
