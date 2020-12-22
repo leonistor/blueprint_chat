@@ -20,3 +20,13 @@ Restart `go run .` when files with extension `go` in current dir are changed:
 `watchexec -r go run . -e go`
 
 using https://github.com/watchexec/watchexec
+
+## CSS
+
+### favicon
+
+https://realfavicongenerator.net/
+
+### flex playground
+
+https://demo.agektmr.com/flexbox/
