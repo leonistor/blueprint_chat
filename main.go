@@ -53,7 +53,7 @@ func main() {
 	gomniauth.WithProviders(github.New(gomniClientID, gomniSecret,
 		"http://localhost:8080/auth/callback/github"))
 
-	r := newRoom(UseGravatarAvatar)
+	r := newRoom(UseFileSystemAvatar)
 	// r.tracer = trace.New(os.Stdout)
 
 	staticFiles := http.FileServer(http.Dir("./templates/assets"))
